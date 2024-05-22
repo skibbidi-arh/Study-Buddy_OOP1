@@ -1,7 +1,11 @@
 import java.io.File;
 
 public class Semester {
-    public boolean addSemister(String semester){
+    public String semester;
+    public Semester(String semester){
+        this.semester = semester;
+    }
+    public boolean addSemister(){
         //In case data folder does not exists it will create one.
         File dataFolder = new File("data/");
         if(!dataFolder.mkdir()  && !dataFolder.exists())
@@ -13,7 +17,7 @@ public class Semester {
             return false;
     }
 
-    public boolean isSemisterAvailable(String semester){
+    public boolean isSemisterAvailable(){
         File semesterFolder = new File("data/"+semester);
         if(semesterFolder.exists() && semesterFolder.isDirectory())
             return true;
@@ -21,7 +25,7 @@ public class Semester {
             return false;
     }
 
-    public boolean removeSemister(String semester){
+    public boolean removeSemister(){
         File semesterFolder = new File("data/"+semester);
         if(deleteDirectory(semesterFolder))
             return true;
