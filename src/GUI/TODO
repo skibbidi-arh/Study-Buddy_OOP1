@@ -1,2 +1,5 @@
-fix the add course.❎
+fix the add course.
     - fix the semester is null bug ❎
+    - fixing duplicate course ❎
+Fix the CourseWindow
+    -Add parsing of course and showing (Just parse n and course name from the data.csv)

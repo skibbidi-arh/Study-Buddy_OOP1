@@ -31,6 +31,8 @@ public class CourseWindow {
         //add course button
         JButton addCourseButton = new JButton("Add Course");
         styleButton(addCourseButton);
+        //custom style
+        addCourseButton.setBackground(new Color(181, 0, 0));
         panel.add(addCourseButton);
         addCourseButton.addActionListener(new ActionListener() {
             @Override

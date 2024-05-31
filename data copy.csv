@@ -1,12 +1,5 @@
-semester, name, code, file_path,
-1, Accounting, HUM 4493,
-1, Accounting, HUM 4493, file:///home/thebigby01/Downloads/_poralekha/Accounting/ch20.pptx,
-1, Discrete Math, CSE 4493 , file:///home/thebigby01/Downloads/_poralekha/Discrete/Discrete-Mathematics-and-Its-Applications-8th-edition.pdf,
-1, Discrete Math, CSE 4493, file:///home/thebigby01/Downloads/_poralekha/Discrete/436363130_1183726212646578_1856788862791354094_n.jpg
-2, Object Oriented Programming 1, SWE 238
-3, Database Management 1, CSE 9393
-1, Digital Logic Design 1, CSE 4493, file:///home/thebigby01/Downloads/_poralekha/DLD/Lecture 3.pdf
-1,accouting,hum 4242
-1,accouting,hum 4242
-1,jk,jk
-1,jk,jk
+semester, name, code, file_path
+2, Discrete Mathematics, CSE 4203
+2, Digital Logic Design, CSE 4205
+2, Object Oriented Concepts I, SWE 4201
+2, Arabic II, Hum 4242

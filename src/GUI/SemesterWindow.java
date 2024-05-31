@@ -37,9 +37,11 @@ public class SemesterWindow {
                     //fetch semster - course data
                     Semester semester = new Semester(Integer.toString(semesterNumber));
                     System.out.println("Selected Semester: "+semester.semester);
+                    //get all course of the semester
+                    ArrayList<String> courseList = semester.getAllCourse();
+                    System.out.println(courseList);
                     //create course window
-                    ArrayList<String> x = new ArrayList<>();
-                    CourseWindow coursewindow = new CourseWindow(0,x);
+                    CourseWindow coursewindow = new CourseWindow(courseList.size(),courseList);
                     coursewindow.showWindow();
                     coursewindow.semester = semester;
                 }

@@ -24,7 +24,7 @@ public class Course{
                 // System.out.println(values[0].getClass().getSimpleName()+semester.semester.getClass().getSimpleName());
                 // System.out.println(values[1]+name);
                 // System.out.println(values[2]+code);
-                if(values[0].equals(semester.semester) && (values[1].equals(name) || values[2].equals(code))){
+                if( values.length == 3 && values[0].equals(semester.semester) && (values[1].equals(name) || values[2].equals(code))){
                     isFound = true;
                     return true;
                 }
