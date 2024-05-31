@@ -7,7 +7,7 @@ public class Semester {
     public Semester(String semester){
         this.semester = semester;
     }
-    public void addCourse(String code, String title){
+    // public void addCourse(String code, String title){
         
-    }
+    // }
 }

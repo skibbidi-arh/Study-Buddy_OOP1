@@ -3,6 +3,7 @@ package GUI;
 import javax.swing.*;
 
 import Middleware.Semester;
+import Middleware.Course;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -82,18 +83,26 @@ public class AddCourseWindow {
                 String courseName = courseNameField.getText();
                 System.out.println("Selected Semester: "+semester.semester);
                 if (!courseCode.isEmpty() && !courseName.isEmpty()) {
-                    try{
-                        BufferedWriter writer = new BufferedWriter(new FileWriter(filepath));
-                        writer.write(semester.semester+","+courseName+","+courseCode);
-                        writer.newLine();
-
-                    }catch(IOException ee){
-                        System.out.println("Error Adding course");
-                        JOptionPane.showMessageDialog(frame, "Error Adding Course!");
+                    //checking if the course exists
+                    Course course = new Course(semester,courseName, courseName);
+                    if(!course.courseAlreadyExists()){
+                        try{
+                            // System.out.println(filepath);
+                            BufferedWriter writer = new BufferedWriter(new FileWriter(filepath,true));
+                            writer.append(semester.semester+","+courseName+","+courseCode+"\n");
+                            writer.close();
+    
+                        }catch(IOException ee){
+                            System.out.println("Error Adding course");
+                            JOptionPane.showMessageDialog(frame, "Error Adding Course!");
+                        }
+                        
+                    } else {
+                        JOptionPane.showMessageDialog(frame, "Course Already exists (Same Name/Course Code)");
                     }
-                    
-                } else {
-                    JOptionPane.showMessageDialog(frame, "Please enter both course code and course name.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(frame, "Course Already Exists!");
                 }
             }
         });
