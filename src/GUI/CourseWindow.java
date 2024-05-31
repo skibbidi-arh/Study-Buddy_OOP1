@@ -31,7 +31,7 @@ public class CourseWindow {
         //add course button
         JButton addCourseButton = new JButton("Add Course");
         styleButton(addCourseButton);
-        //custom style
+        //custom style for addCourseButton
         addCourseButton.setBackground(new Color(181, 0, 0));
         panel.add(addCourseButton);
         addCourseButton.addActionListener(new ActionListener() {
@@ -41,6 +41,8 @@ public class CourseWindow {
                 addcourse.showWindow();
                 addcourse.semester = semester;
                 System.out.println("Selected Semester: "+semester.semester);
+                frame.setVisible(false);
+                
             }
         });
         
@@ -49,6 +51,12 @@ public class CourseWindow {
             JButton button = new JButton(labels.get(i));
             styleButton(button);
             panel.add(button);
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e){
+
+                }
+            });
         }
 
         // Add panel to frame

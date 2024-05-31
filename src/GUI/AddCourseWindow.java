@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AddCourseWindow {
 
@@ -91,7 +92,17 @@ public class AddCourseWindow {
                             BufferedWriter writer = new BufferedWriter(new FileWriter(filepath,true));
                             writer.append(semester.semester+","+courseName+","+courseCode+"\n");
                             writer.close();
-    
+                            JOptionPane.showMessageDialog(frame, "Course Added successfully.");
+                            
+                            //create course window
+                            //get all course of the semester
+                            ArrayList<String> courseList = semester.getAllCourse();
+                            System.out.println(courseList);
+                            //create course window
+                            CourseWindow coursewindow = new CourseWindow(courseList.size(),courseList);
+                            coursewindow.showWindow();
+                            coursewindow.semester = semester;
+                            frame.setVisible(false);
                         }catch(IOException ee){
                             System.out.println("Error Adding course");
                             JOptionPane.showMessageDialog(frame, "Error Adding Course!");
@@ -102,7 +113,7 @@ public class AddCourseWindow {
                     }
                 }
                 else{
-                    JOptionPane.showMessageDialog(frame, "Course Already Exists!");
+                    JOptionPane.showMessageDialog(frame, "Enter both course code and course name.");
                 }
             }
         });

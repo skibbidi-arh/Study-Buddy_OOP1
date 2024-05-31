@@ -44,6 +44,7 @@ public class SemesterWindow {
                     CourseWindow coursewindow = new CourseWindow(courseList.size(),courseList);
                     coursewindow.showWindow();
                     coursewindow.semester = semester;
+                    frame.setVisible(false);
                 }
             });
         }

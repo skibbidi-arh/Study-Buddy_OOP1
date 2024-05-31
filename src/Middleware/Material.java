@@ -1,11 +1,8 @@
+package Middleware;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-
-import Middleware.Course;
-import Middleware.Semester;
-
 import java.io.File;
 import java.io.IOException;
 
