@@ -38,39 +38,47 @@ public class MaterialWindow {
         courseNameLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         frame.add(courseNameLabel, BorderLayout.NORTH);
 
-        //add Add material button
+        // Create a panel for the buttons
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10)); // Center alignment, with 10px gap
+
+        // Add material button
         JButton addMaterialButton = new JButton("Add course material");
-        styleButton(addMaterialButton,new Color(181, 0, 0), new Color(159, 0, 0));
-        frame.add(addMaterialButton, BorderLayout.NORTH);
-        //handle the add button trigger
+        styleButton(addMaterialButton, new Color(181, 0, 0), new Color(159, 0, 0));
+        buttonPanel.add(addMaterialButton);
+
+        // Handle the add button trigger
         addMaterialButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
-                
-                
+            public void actionPerformed(ActionEvent e) {
+                // Handle add material action here
             }
         });
 
-        //add back button
+        // Add back button
         JButton backButton = new JButton("Back");
-        styleButton(backButton,new Color(0, 181, 0), new Color(0, 159, 0));
-        frame.add(backButton, BorderLayout.SOUTH);
-        //handle the add button trigger
+        styleButton(backButton, new Color(0, 181, 0), new Color(0, 159, 0));
+        buttonPanel.add(backButton);
+
+        // Handle the back button trigger
         System.out.println(semester.semester);
         backButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
-                //get all course of the semester
+            public void actionPerformed(ActionEvent e) {
+                // Get all courses of the semester
                 ArrayList<String> courseNameList = semester.getAllCourseName();
                 ArrayList<String> courseCodeList = semester.getAllCourseCode();
                 System.out.println(courseNameList);
-                //create course window
-                CourseWindow coursewindow = new CourseWindow(courseNameList.size(),courseNameList,courseCodeList);
+                // Create course window
+                CourseWindow coursewindow = new CourseWindow(courseNameList.size(), courseNameList, courseCodeList);
                 coursewindow.showWindow();
                 coursewindow.semester = semester;
                 frame.setVisible(false);
             }
         });
+
+        // Add the button panel to the bottom of the frame
+        frame.add(buttonPanel, BorderLayout.SOUTH);
 
         // Create the table model and set columns
         tableModel = new DefaultTableModel();
@@ -79,7 +87,6 @@ public class MaterialWindow {
         tableModel.addColumn("Material Link");
 
         // Populate the table model with data from the materialList
-
         for (Material material : materialList) {
             tableModel.addRow(new Object[]{material.getMaterialTitle(), material.getCourseCode(), material.getMaterialLink()});
         }
@@ -119,7 +126,7 @@ public class MaterialWindow {
         table.getTableHeader().setForeground(Color.WHITE);
         table.setShowGrid(false);
         table.setIntercellSpacing(new Dimension(0, 0));
-    
+
         // Set header renderer for hover effect
         JTableHeader header = table.getTableHeader();
         header.setDefaultRenderer(new DefaultTableCellRenderer() {

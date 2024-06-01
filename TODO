@@ -15,9 +15,11 @@ Task manager
 create the materialWindow GUI❎
 add window change logic to courseWindow❎
 Create a sync button in the course and material window
-*Create back button on course and material window
+*Create back button on course and material window❎
 *Fix the visiblity of the attributes . (getter setter )
 Fix multiple button show Bug❎
 Add material title in the Material and remove ❎
 
 Add the add course material window and it's logics
+
+Change the color of add and cancel button of CourseAddWindow
