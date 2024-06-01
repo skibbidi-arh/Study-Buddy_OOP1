@@ -9,28 +9,28 @@ import java.io.IOException;
 public class Material{
     Semester semester;
     Course course;
-    String filePath = null;
-    //A prevous saved material - with location
-    public Material(Semester semester, Course course, String filePath) {
+    String fileLink = null;
+    
+    public Material(Semester semester, Course course, String fileLink) {
         this.semester = semester;
         this.course = course;
-        this.filePath = filePath;
+        this.fileLink = fileLink;
     }
 
-    //A new material - without location
-    public Material(Semester semester, Course course) {
-        this.semester = semester;
-        this.course = course;
+    public String getSemester(){
+        return semester.semester;
     }
-
-
-    public void addMaterial(String fileName ,String filePath){
-        this.filePath = filePath;
-        File file = new File(filePath);
-        
+    public String getCourseName(){
+        return course.name;
     }
-
-    public void relocateMaterial(String fileName, String fileSourcePath){
-
+    public String getCourseCode(){
+        return course.code;
     }
+    public String getFileLink(){
+        return getFileLink();
+    }
+    public String getMaterialLink(){
+        return fileLink;
+    }
+    
 }

@@ -2,6 +2,7 @@ package Middleware;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Course{
     Semester semester;
@@ -35,6 +36,23 @@ public class Course{
         }
         if(!isFound) return false;
         else return true;
+    }
+
+    public ArrayList<Material> getAllMaterial(){
+        ArrayList<Material> materialList = new ArrayList<>();
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("data.csv"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(",");
+                if(values[0].equals(semester.semester) && (values[1].equals(name) || values[2].equals(code) )  && values.length==4 )
+                    materialList.add(new Material(semester, new Course(semester, name, code), values[3]));
+            }
+            reader.close();
+        } catch(IOException e){
+            System.out.println("Error reading file");
+        }
+        return materialList;
     }
     
 }

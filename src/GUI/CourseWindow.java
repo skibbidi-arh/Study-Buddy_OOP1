@@ -2,7 +2,9 @@ package GUI;
 
 import javax.swing.*;
 
+import Middleware.Course;
 import Middleware.Semester;
+import Middleware.Material;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,7 +18,7 @@ public class CourseWindow {
     private ArrayList<String> labels;
     Semester semester;
 
-    public CourseWindow(int n, ArrayList<String> labels) {
+    public CourseWindow(int n, ArrayList<String> labels, ArrayList<String> codes) {
         this.labels = labels;
         frame = new JFrame("Custom Buttons Window");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,10 +53,15 @@ public class CourseWindow {
             JButton button = new JButton(labels.get(i));
             styleButton(button);
             panel.add(button);
+            String label = labels.get(i);
+            String code = codes.get(i);
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e){
-
+                    Course course = new Course(semester, label, code);
+                    ArrayList<Material> material = course.getAllMaterial();
+                    MaterialWindow materialwindow = new MaterialWindow(null, material);
+                    materialwindow.showWindow();
                 }
             });
         }

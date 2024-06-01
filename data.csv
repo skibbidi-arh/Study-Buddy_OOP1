@@ -1,8 +1,10 @@
-semester, name, code, file_path
+semester, name, code, file_name, file_path
 2, Discrete Mathematics, CSE 4203
+2, Discrete Mathematics, CSE 4203,google.com
 2, Digital Logic Design, CSE 4205
-2, Object Oriented Concepts I, SWE 4201
-2, Arabic II, Hum 42421,jk,jk
+2, Digital Logic Design, CSE 4205,gmail.com
+2, Object Oriented Concepts I, SWE 4201,gmail.com
+2, Arabic II, Hum 42421,jk,jk,yahoo.com
 1,jk,jk
 1,ak,ak
 1,aka,akk

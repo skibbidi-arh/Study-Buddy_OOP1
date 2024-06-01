@@ -96,10 +96,12 @@ public class AddCourseWindow {
                             
                             //create course window
                             //get all course of the semester
-                            ArrayList<String> courseList = semester.getAllCourse();
-                            System.out.println(courseList);
+                            ArrayList<String> courseNameList = semester.getAllCourseName();
+                            ArrayList<String> courseCodeList = semester.getAllCourseCode();
+                            System.out.println(courseNameList);
+                            System.out.println(courseCodeList);
                             //create course window
-                            CourseWindow coursewindow = new CourseWindow(courseList.size(),courseList);
+                            CourseWindow coursewindow = new CourseWindow(courseNameList.size(),courseNameList, courseCodeList);
                             coursewindow.showWindow();
                             coursewindow.semester = semester;
                             frame.setVisible(false);
