@@ -17,7 +17,7 @@ public class Semester {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] values = line.split(",");
-                if(values[0].equals(semester)) courseList.add(values[1]);
+                if(values[0].equals(semester) && values.length==3) courseList.add(values[1]);
             }
             reader.close();
         } catch(IOException e){
@@ -33,7 +33,7 @@ public class Semester {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] values = line.split(",");
-                if(values[0].equals(semester)) courseList.add(values[2]);
+                if(values[0].equals(semester) && values.length == 3) courseList.add(values[2]);
             }
             reader.close();
         } catch(IOException e){

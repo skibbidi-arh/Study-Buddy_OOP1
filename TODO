@@ -9,8 +9,10 @@ Task manager
 
 **Make the string both lowercase before comparing - toLowerCase() method
 
-create the materialWindow GUI
-add window change logic to courseWindow
+create the materialWindow GUI❎
+add window change logic to courseWindow❎
 Create a sync button in the course and material window
 *Create back button on course and material window
 Fix the visiblity of the attributes .
+Fix multiple button show Bug❎
+Add material title in the Material and remove 

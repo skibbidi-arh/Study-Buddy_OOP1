@@ -60,7 +60,7 @@ public class CourseWindow {
                 public void actionPerformed(ActionEvent e){
                     Course course = new Course(semester, label, code);
                     ArrayList<Material> material = course.getAllMaterial();
-                    MaterialWindow materialwindow = new MaterialWindow(null, material);
+                    MaterialWindow materialwindow = new MaterialWindow(label, material);
                     materialwindow.showWindow();
                 }
             });
