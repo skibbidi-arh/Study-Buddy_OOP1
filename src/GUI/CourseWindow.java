@@ -35,6 +35,7 @@ public class CourseWindow {
         styleButton(addCourseButton);
         //custom style for addCourseButton
         addCourseButton.setBackground(new Color(181, 0, 0));
+        
         panel.add(addCourseButton);
         addCourseButton.addActionListener(new ActionListener() {
             @Override

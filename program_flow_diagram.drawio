@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-06-01T08:53:46.503Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.13 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="TRx-x8vzeluKM-siRIP_" version="24.4.13" type="device">
+<mxfile host="Electron" modified="2024-06-01T09:25:03.610Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.13 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="JKxtD5OMDjX-6f9i7OPT" version="24.4.13" type="device">
   <diagram name="Page-1" id="hZjLJd5DQb2nPM2vNGDl">
     <mxGraphModel dx="1839" dy="1706" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -206,8 +206,14 @@
         <mxCell id="kUMYeLrfrgq7O8A4BPYU-94" value="get all material of that course" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" parent="1" vertex="1">
           <mxGeometry x="200" y="600" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="kUMYeLrfrgq7O8A4BPYU-96" value="Create material with the coursename and&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="200" y="730" width="120" height="60" as="geometry" />
+        <mxCell id="ggRZYZTkxGHFuDkCwDY1-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kUMYeLrfrgq7O8A4BPYU-96" target="ggRZYZTkxGHFuDkCwDY1-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kUMYeLrfrgq7O8A4BPYU-96" value="Create material with the coursename and Arraylist material(name + link&lt;span style=&quot;background-color: initial;&quot;&gt;)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="150" y="720" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ggRZYZTkxGHFuDkCwDY1-1" value="Creates a instance of addMaterial Window" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="870" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -12,6 +12,8 @@ import Middleware.Semester;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -36,15 +38,30 @@ public class MaterialWindow {
         courseNameLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         frame.add(courseNameLabel, BorderLayout.NORTH);
 
+        //add Add material button
+        JButton addMaterialButton = new JButton("Add course material");
+        styleButton(addMaterialButton);
+        addMaterialButton.setBackground(new Color(181, 0, 0));
+        frame.add(addMaterialButton, BorderLayout.SOUTH);
+        //handle the add button trigger
+        addMaterialButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                
+                
+            }
+        });
+
         // Create the table model and set columns
         tableModel = new DefaultTableModel();
-        tableModel.addColumn("Course Name");
+        tableModel.addColumn("Material Title");
         tableModel.addColumn("Course Code");
         tableModel.addColumn("Material Link");
 
         // Populate the table model with data from the materialList
+        //--------------------Fix the material title
         for (Material material : materialList) {
-            tableModel.addRow(new Object[]{material.getCourseName(), material.getCourseCode(), material.getMaterialLink()});
+            tableModel.addRow(new Object[]{material.getMaterialTitle(), material.getCourseCode(), material.getMaterialLink()});
         }
 
         // Create the table and set the model
@@ -94,6 +111,32 @@ public class MaterialWindow {
                 label.setForeground(Color.WHITE);
                 label.setFont(new Font("Arial", Font.BOLD, 16));
                 return label;
+            }
+        });
+    }
+
+    private void styleButton(JButton button) {
+        // Set button font
+        button.setFont(new Font("Arial", Font.PLAIN, 18));
+
+        // Set button background and foreground colors
+        button.setBackground(new Color(63, 81, 181)); // Indigo color
+        button.setForeground(Color.WHITE);
+
+        // Remove button border and set margin
+        button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // Top, left, bottom, right padding
+
+        // Make button flat
+        button.setFocusPainted(false);
+
+        // Add hover effect
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button.setBackground(new Color(48, 63, 159)); // Darker indigo on hover
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button.setBackground(new Color(63, 81, 181)); // Original indigo
             }
         });
     }

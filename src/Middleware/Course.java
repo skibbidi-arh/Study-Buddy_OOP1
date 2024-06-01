@@ -45,8 +45,8 @@ public class Course{
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] values = line.split(",");
-                if(values[0].equals(semester.semester) && (values[1].equals(name) || values[2].equals(code) )  && values.length==4 )
-                    materialList.add(new Material(semester, new Course(semester, name, code), values[3]));
+                if(values[0].equals(semester.semester) && (values[1].equals(name) || values[2].equals(code) )  && values.length==5 )
+                    materialList.add(new Material(semester, new Course(semester, name, code),values[3],values[4]));
             }
             reader.close();
         } catch(IOException e){

@@ -9,11 +9,13 @@ import java.io.IOException;
 public class Material{
     Semester semester;
     Course course;
+    String fileTitle = null;
     String fileLink = null;
     
-    public Material(Semester semester, Course course, String fileLink) {
+    public Material(Semester semester, Course course, String fileTitle,String fileLink) {
         this.semester = semester;
         this.course = course;
+        this.fileTitle = fileTitle;
         this.fileLink = fileLink;
     }
 
@@ -26,11 +28,11 @@ public class Material{
     public String getCourseCode(){
         return course.code;
     }
-    public String getFileLink(){
-        return getFileLink();
-    }
     public String getMaterialLink(){
         return fileLink;
+    }
+    public String getMaterialTitle(){
+        return fileTitle;
     }
     
 }
