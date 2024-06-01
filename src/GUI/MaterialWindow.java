@@ -16,6 +16,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MaterialWindow {
@@ -108,11 +110,25 @@ public class MaterialWindow {
                 if (selectedRow != -1) {
                     String materialLink = table.getValueAt(selectedRow, 2).toString();
 
-                    // Copy row data (for demonstration, just print it out)
-                    StringSelection selection = new StringSelection(materialLink);
-                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-                    clipboard.setContents(selection, selection);
-                    System.out.println("Material Link: " + materialLink);
+                    // checks the file and if possible opens it.
+                    File file = new File(materialLink);
+                    if (Desktop.isDesktopSupported()) {
+                        Desktop desktop = Desktop.getDesktop();
+                        if (file.exists()) {
+                            try {
+                                desktop.open(file);
+                            } catch (IOException ee) {
+                                ee.printStackTrace();
+                            }
+                        } else {
+                            System.out.println("File not found: " + materialLink);
+                            JOptionPane.showMessageDialog(frame, "File not found:"+materialLink);
+
+                        }
+                    } else {
+                        System.out.println("Desktop not supported.");
+                        JOptionPane.showMessageDialog(frame, "Desktop not supported.");
+                    }
                 }
             }
         });
