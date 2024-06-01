@@ -109,10 +109,10 @@ public class MaterialWindow {
                 int selectedRow = table.getSelectedRow();
                 if (selectedRow != -1) {
                     String materialLink = table.getValueAt(selectedRow, 2).toString();
-
                     // checks the file and if possible opens it.
                     File file = new File(materialLink);
                     if (Desktop.isDesktopSupported()) {
+                        //opens the file in default app if possible
                         Desktop desktop = Desktop.getDesktop();
                         if (file.exists()) {
                             try {
@@ -126,8 +126,12 @@ public class MaterialWindow {
 
                         }
                     } else {
-                        System.out.println("Desktop not supported.");
-                        JOptionPane.showMessageDialog(frame, "Desktop not supported.");
+                        //copies the file if opening not possible
+                        StringSelection selection = new StringSelection(materialLink);
+                        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                        clipboard.setContents(selection, selection);
+                        System.out.println("Material Link: " + materialLink);
+                        JOptionPane.showMessageDialog(frame, "Link copied to clipboard.");
                     }
                 }
             }
