@@ -32,7 +32,7 @@ public class CourseWindow {
 
         //add course button
         JButton addCourseButton = new JButton("Add Course");
-        styleCourseButton(addCourseButton);
+        styleButton(addCourseButton,new Color(181, 0, 0),new Color(159, 0, 0));
         
         panel.add(addCourseButton);
         addCourseButton.addActionListener(new ActionListener() {
@@ -50,7 +50,7 @@ public class CourseWindow {
         //course button
         for (int i = 0; i < n; i++) {
             JButton button = new JButton(labels.get(i));
-            styleButton(button);
+            styleButton(button,new Color(63, 81, 181),new Color(48, 63, 159));
             panel.add(button);
             String label = labels.get(i);
             String code = codes.get(i);
@@ -68,7 +68,7 @@ public class CourseWindow {
         
         //add Back button - custom style
         JButton backButton = new JButton("Back");
-        styleBackButton(backButton);
+        styleButton(backButton,new Color(0, 181, 0),new Color(0, 159, 0));
         panel.add(backButton);
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -82,12 +82,12 @@ public class CourseWindow {
         frame.add(panel, new GridBagConstraints());
     }
 
-    private void styleButton(JButton button) {
+    private void styleButton(JButton button, Color generalColor, Color hoverColor) {
         // Set button font
         button.setFont(new Font("Arial", Font.PLAIN, 18));
 
         // Set button background and foreground colors
-        button.setBackground(new Color(63, 81, 181)); // Indigo color
+        button.setBackground(generalColor); // Indigo color
         button.setForeground(Color.WHITE);
 
         // Remove button border and set margin
@@ -99,63 +99,11 @@ public class CourseWindow {
         // Add hover effect
         button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(48, 63, 159)); // Darker indigo on hover
+                button.setBackground(hoverColor);
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(63, 81, 181)); // Original indigo
-            }
-        });
-    }
-
-    private void styleCourseButton(JButton button) {
-        // Set button font
-        button.setFont(new Font("Arial", Font.PLAIN, 18));
-
-        // Set button background and foreground colors
-        button.setBackground(new Color(181, 0, 0));
-        button.setForeground(Color.WHITE);
-
-        // Remove button border and set margin
-        button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // Top, left, bottom, right padding
-
-        // Make button flat
-        button.setFocusPainted(false);
-
-        // Add hover effect
-        button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(159, 0, 0));
-            }
-
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(181, 0, 0));
-            }
-        });
-    }
-
-    private void styleBackButton(JButton button) {
-        // Set button font
-        button.setFont(new Font("Arial", Font.PLAIN, 18));
-
-        // Set button background and foreground colors
-        button.setBackground(new Color(0, 181, 0)); 
-        button.setForeground(Color.WHITE);
-
-        // Remove button border and set margin
-        button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // Top, left, bottom, right padding
-
-        // Make button flat
-        button.setFocusPainted(false);
-
-        // Add hover effect
-        button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(0, 159, 0));
-            }
-
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(0, 181, 0));
+                button.setBackground(generalColor);
             }
         });
     }
