@@ -24,7 +24,7 @@ public class MaterialWindow {
     private JTable table;
     private DefaultTableModel tableModel;
 
-    public MaterialWindow(String courseName, ArrayList<Material> materialList) {
+    public MaterialWindow(String courseName, ArrayList<Material> materialList, Semester semester) {
         // Set up the frame
         frame = new JFrame(courseName + " Materials");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,15 +40,35 @@ public class MaterialWindow {
 
         //add Add material button
         JButton addMaterialButton = new JButton("Add course material");
-        styleButton(addMaterialButton);
-        addMaterialButton.setBackground(new Color(181, 0, 0));
-        frame.add(addMaterialButton, BorderLayout.SOUTH);
+        styleButton(addMaterialButton,new Color(181, 0, 0), new Color(159, 0, 0));
+        frame.add(addMaterialButton, BorderLayout.NORTH);
         //handle the add button trigger
         addMaterialButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
                 
                 
+            }
+        });
+
+        //add back button
+        JButton backButton = new JButton("Back");
+        styleButton(backButton,new Color(0, 181, 0), new Color(0, 159, 0));
+        frame.add(backButton, BorderLayout.SOUTH);
+        //handle the add button trigger
+        System.out.println(semester.semester);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                //get all course of the semester
+                ArrayList<String> courseNameList = semester.getAllCourseName();
+                ArrayList<String> courseCodeList = semester.getAllCourseCode();
+                System.out.println(courseNameList);
+                //create course window
+                CourseWindow coursewindow = new CourseWindow(courseNameList.size(),courseNameList,courseCodeList);
+                coursewindow.showWindow();
+                coursewindow.semester = semester;
+                frame.setVisible(false);
             }
         });
 
@@ -59,7 +79,7 @@ public class MaterialWindow {
         tableModel.addColumn("Material Link");
 
         // Populate the table model with data from the materialList
-        //--------------------Fix the material title
+
         for (Material material : materialList) {
             tableModel.addRow(new Object[]{material.getMaterialTitle(), material.getCourseCode(), material.getMaterialLink()});
         }
@@ -95,7 +115,7 @@ public class MaterialWindow {
         table.setFont(new Font("Arial", Font.PLAIN, 14));
         table.setRowHeight(24);
         table.getTableHeader().setFont(new Font("Arial", Font.BOLD, 16));
-        table.getTableHeader().setBackground(new Color(63, 81, 181)); // Indigo background
+        table.getTableHeader().setBackground(new Color(63, 81, 181));
         table.getTableHeader().setForeground(Color.WHITE);
         table.setShowGrid(false);
         table.setIntercellSpacing(new Dimension(0, 0));
@@ -107,7 +127,7 @@ public class MaterialWindow {
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                 label.setOpaque(true);
-                label.setBackground(new Color(63, 81, 181)); // Indigo background
+                label.setBackground(new Color(63, 81, 181));
                 label.setForeground(Color.WHITE);
                 label.setFont(new Font("Arial", Font.BOLD, 16));
                 return label;
@@ -115,12 +135,12 @@ public class MaterialWindow {
         });
     }
 
-    private void styleButton(JButton button) {
+    private void styleButton(JButton button, Color regularColor, Color hoverColor) {
         // Set button font
         button.setFont(new Font("Arial", Font.PLAIN, 18));
 
         // Set button background and foreground colors
-        button.setBackground(new Color(63, 81, 181)); // Indigo color
+        button.setBackground(regularColor);
         button.setForeground(Color.WHITE);
 
         // Remove button border and set margin
@@ -132,11 +152,11 @@ public class MaterialWindow {
         // Add hover effect
         button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(48, 63, 159)); // Darker indigo on hover
+                button.setBackground(hoverColor);
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(63, 81, 181)); // Original indigo
+                button.setBackground(regularColor);
             }
         });
     }

@@ -19,8 +19,8 @@ public class Material{
         this.fileLink = fileLink;
     }
 
-    public String getSemester(){
-        return semester.semester;
+    public Semester getSemester(){
+        return semester;
     }
     public String getCourseName(){
         return course.name;

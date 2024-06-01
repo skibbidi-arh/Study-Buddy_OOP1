@@ -31,6 +31,8 @@ public class AddCourseWindow {
         frame.setLayout(new GridBagLayout());
         frame.setLocationRelativeTo(null); // Center the frame
 
+        
+        
         // Create the panel
         JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
@@ -117,6 +119,28 @@ public class AddCourseWindow {
                 else{
                     JOptionPane.showMessageDialog(frame, "Enter both course code and course name.");
                 }
+            }
+        });
+
+        //Add back button
+        JButton cancelButton = new JButton("Cancel");
+        styleButton(cancelButton);
+        constraints.gridx = 1;
+        constraints.gridy = 2;
+        constraints.anchor = GridBagConstraints.EAST;
+        panel.add(cancelButton, constraints);
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //get all course of the semester
+                ArrayList<String> courseNameList = semester.getAllCourseName();
+                ArrayList<String> courseCodeList = semester.getAllCourseCode();
+                System.out.println(courseNameList);
+                //create course window
+                CourseWindow coursewindow = new CourseWindow(courseNameList.size(),courseNameList,courseCodeList);
+                coursewindow.showWindow();
+                coursewindow.semester = semester;
+                frame.setVisible(false);
             }
         });
 

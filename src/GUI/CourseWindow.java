@@ -32,9 +32,7 @@ public class CourseWindow {
 
         //add course button
         JButton addCourseButton = new JButton("Add Course");
-        styleButton(addCourseButton);
-        //custom style for addCourseButton
-        addCourseButton.setBackground(new Color(181, 0, 0));
+        styleCourseButton(addCourseButton);
         
         panel.add(addCourseButton);
         addCourseButton.addActionListener(new ActionListener() {
@@ -61,12 +59,25 @@ public class CourseWindow {
                 public void actionPerformed(ActionEvent e){
                     Course course = new Course(semester, label, code);
                     ArrayList<Material> material = course.getAllMaterial();
-                    MaterialWindow materialwindow = new MaterialWindow(label, material);
+                    MaterialWindow materialwindow = new MaterialWindow(label, material, semester);
                     materialwindow.showWindow();
+                    frame.setVisible(false);
                 }
             });
         }
-
+        
+        //add Back button - custom style
+        JButton backButton = new JButton("Back");
+        styleBackButton(backButton);
+        panel.add(backButton);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                SemesterWindow semesterWindow = new SemesterWindow();
+                frame.setVisible(false);
+                semesterWindow.showWindow();
+            }
+        });
         // Add panel to frame
         frame.add(panel, new GridBagConstraints());
     }
@@ -93,6 +104,58 @@ public class CourseWindow {
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 button.setBackground(new Color(63, 81, 181)); // Original indigo
+            }
+        });
+    }
+
+    private void styleCourseButton(JButton button) {
+        // Set button font
+        button.setFont(new Font("Arial", Font.PLAIN, 18));
+
+        // Set button background and foreground colors
+        button.setBackground(new Color(181, 0, 0));
+        button.setForeground(Color.WHITE);
+
+        // Remove button border and set margin
+        button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // Top, left, bottom, right padding
+
+        // Make button flat
+        button.setFocusPainted(false);
+
+        // Add hover effect
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button.setBackground(new Color(159, 0, 0));
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button.setBackground(new Color(181, 0, 0));
+            }
+        });
+    }
+
+    private void styleBackButton(JButton button) {
+        // Set button font
+        button.setFont(new Font("Arial", Font.PLAIN, 18));
+
+        // Set button background and foreground colors
+        button.setBackground(new Color(0, 181, 0)); 
+        button.setForeground(Color.WHITE);
+
+        // Remove button border and set margin
+        button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // Top, left, bottom, right padding
+
+        // Make button flat
+        button.setFocusPainted(false);
+
+        // Add hover effect
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button.setBackground(new Color(0, 159, 0));
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button.setBackground(new Color(0, 181, 0));
             }
         });
     }
