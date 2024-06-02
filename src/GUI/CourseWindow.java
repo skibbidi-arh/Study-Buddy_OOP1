@@ -9,7 +9,6 @@ import Middleware.Material;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.nio.channels.AcceptPendingException;
 import java.util.ArrayList;
 
 public class CourseWindow {
@@ -59,7 +58,7 @@ public class CourseWindow {
                 public void actionPerformed(ActionEvent e){
                     Course course = new Course(semester, label, code);
                     ArrayList<Material> material = course.getAllMaterial();
-                    MaterialWindow materialwindow = new MaterialWindow(label, material, semester);
+                    MaterialWindow materialwindow = new MaterialWindow(course, material);
                     materialwindow.showWindow();
                     frame.setVisible(false);
                 }

@@ -26,16 +26,16 @@ public class MaterialWindow {
     private JTable table;
     private DefaultTableModel tableModel;
 
-    public MaterialWindow(String courseName, ArrayList<Material> materialList, Semester semester) {
+    public MaterialWindow(Course course, ArrayList<Material> materialList) {
         // Set up the frame
-        frame = new JFrame(courseName + " Materials");
+        frame = new JFrame(course.name + " Materials");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
+        frame.setSize(400, 400);
         frame.setLayout(new BorderLayout());
         frame.setLocationRelativeTo(null); // Center the frame
 
         // Create the course name label
-        JLabel courseNameLabel = new JLabel(courseName, SwingConstants.CENTER);
+        JLabel courseNameLabel = new JLabel(course.name, SwingConstants.CENTER);
         courseNameLabel.setFont(new Font("Arial", Font.BOLD, 24));
         courseNameLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         frame.add(courseNameLabel, BorderLayout.NORTH);
@@ -54,6 +54,9 @@ public class MaterialWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Handle add material action here
+                AddMaterialWindow addmaterial = new AddMaterialWindow(course);
+                addmaterial.showWindow();
+                frame.setVisible(false);
             }
         });
 
@@ -63,18 +66,18 @@ public class MaterialWindow {
         buttonPanel.add(backButton);
 
         // Handle the back button trigger
-        System.out.println(semester.semester);
+        System.out.println(course.semester.semester);
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Get all courses of the semester
-                ArrayList<String> courseNameList = semester.getAllCourseName();
-                ArrayList<String> courseCodeList = semester.getAllCourseCode();
+                ArrayList<String> courseNameList = course.semester.getAllCourseName();
+                ArrayList<String> courseCodeList = course.semester.getAllCourseCode();
                 System.out.println(courseNameList);
                 // Create course window
                 CourseWindow coursewindow = new CourseWindow(courseNameList.size(), courseNameList, courseCodeList);
                 coursewindow.showWindow();
-                coursewindow.semester = semester;
+                coursewindow.semester = course.semester;
                 frame.setVisible(false);
             }
         });
