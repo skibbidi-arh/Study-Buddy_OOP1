@@ -1,14 +1,14 @@
-import java.util.ArrayList;
 
-import GUI.CourseWindow;
-import GUI.SemesterWindow;
+import GUI.LandingWindow;
+
+import Middleware.*;
 
 public class Main {
     // static String filepath = "data.csv";
     public static void main(String[] args) {
-        //landing window
-        SemesterWindow semesterwindow = new SemesterWindow();
-        semesterwindow.showWindow();
+
+        LandingWindow landingwindow = new LandingWindow();
+        landingwindow.showWindow();
     }
 
 }

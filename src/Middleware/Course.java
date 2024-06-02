@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Course{
-    Semester semester;
+    public Semester semester;
     public String name;
     public String code;
 
