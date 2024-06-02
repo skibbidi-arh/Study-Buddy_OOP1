@@ -30,3 +30,5 @@ change the window size.
 Sync with url system.
 
 fix the setvisible = false to hideWindow
+
+fix the '\n' bug

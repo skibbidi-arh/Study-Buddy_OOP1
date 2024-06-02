@@ -141,7 +141,7 @@ public class SyncWindow {
                         if(!isFound){
                             //add line to file
                             BufferedWriter writer = new BufferedWriter(new FileWriter("data.csv",true));
-                            writer.append(retrivalDataSplit[i]);
+                            writer.append(retrivalDataSplit[i]+"\n");
                             writer.close();
                             // dialog.setVisible(false);
                         }
@@ -152,7 +152,7 @@ public class SyncWindow {
                 }
                 if(!retrivalFailed){
                     JOptionPane.showMessageDialog(frame, "Data synced succefully.");
-                    dialog.setVisible(false);
+                    // dialog.setVisible(false);
                 }
                 //hide popup dialog
                 dialog.setVisible(false);
