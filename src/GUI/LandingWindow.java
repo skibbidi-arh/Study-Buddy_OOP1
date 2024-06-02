@@ -20,9 +20,9 @@ public class LandingWindow{
         frame.setLocationRelativeTo(null);
 
         JPanel panel = new JPanel();
-        // 4 rows , 2 columns
+
         panel.setLayout(new GridLayout(4, 2, 10, 10));
-        //padding
+
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         JButton materialButton = new JButton("Study Materials");
@@ -58,20 +58,20 @@ public class LandingWindow{
     }
 
     static void styleButton(JButton button, Color defaultColor, Color hoverColor) {
-        // Set button font
+
         button.setFont(new Font("Arial", Font.PLAIN, 18));
 
-        // Set button background and foreground colors
+
         button.setBackground(defaultColor);
         button.setForeground(Color.WHITE);
 
-        // Remove button border and set margin
+
         button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // Top, left, bottom, right padding
 
-        // Make button flat
+
         button.setFocusPainted(false);
 
-        // Add hover effect
+
         button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 button.setBackground(hoverColor);

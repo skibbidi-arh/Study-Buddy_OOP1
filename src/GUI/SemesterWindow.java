@@ -55,16 +55,7 @@ public class SemesterWindow {
         //adding panel to frame
 
         frame.add(panel);
-        JButton timerButton = new JButton("Start a timer");
 
-        panel.add(timerButton);
-        timerButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Action to be performed when the button is clicked
-                Stopwatch st = new Stopwatch();
-            }
-        });
     }
 
     private void styleButton(JButton button, Color defaultColor, Color hoverColor) {
