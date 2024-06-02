@@ -1,3 +1,5 @@
+package Middleware;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -30,7 +32,7 @@ public class Stopwatch implements ActionListener {
         }
     });
 
-    Stopwatch()
+    public Stopwatch()
     {
         timeLabel.setText(hours_string+":"+minutes_string+":"+seconds_string);
         timeLabel.setBounds(100,100,200,100);
@@ -52,7 +54,7 @@ public class Stopwatch implements ActionListener {
         frame.add(startButton);
         frame.add(resetButton);
         frame.add(timeLabel);
-        frame.setDefaultCloseOperation(3);
+       // frame.setDefaultCloseOperation(3);
         frame.setSize(420,420);
         frame.setLayout(null);
         frame.setVisible(true);
