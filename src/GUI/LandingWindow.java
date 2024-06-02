@@ -29,7 +29,7 @@ public class LandingWindow{
         styleButton(materialButton,new Color(63, 81, 181),new Color(48, 63, 159));
         JButton timerButton = new JButton("Study Timer");
         styleButton(timerButton,new Color(181, 0, 0),new Color(159, 0, 0));
-        JButton syncButton = new JButton("Sync Notes");
+        JButton syncButton = new JButton("Share/Sync Notes");
         styleButton(syncButton,new Color(0, 181, 0),new Color(0, 159, 0));
         panel.add(materialButton);
         panel.add(timerButton);
