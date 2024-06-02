@@ -24,6 +24,8 @@ public class SemesterWindow {
         //padding
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
+
+
         //creating 8 buttons
         for (int i = 1; i <= 8; i++) {
             JButton button = new JButton("Semester " + i);
@@ -51,7 +53,18 @@ public class SemesterWindow {
         }
 
         //adding panel to frame
-        frame.add(panel, new GridBagConstraints());
+
+        frame.add(panel);
+        JButton timerButton = new JButton("Start a timer");
+
+        panel.add(timerButton);
+        timerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Action to be performed when the button is clicked
+                Stopwatch st = new Stopwatch();
+            }
+        });
     }
 
     private void styleButton(JButton button) {
