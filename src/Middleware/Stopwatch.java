@@ -8,7 +8,7 @@ public class Stopwatch implements ActionListener {
     JFrame frame= new JFrame();
 
     JButton startButton = new JButton("Start");
-    JButton resetButton = new JButton("reset");
+    JButton resetButton = new JButton("Reset");
     JLabel timeLabel = new JLabel();
     int elapsedTime =0;
     int seconds = 0;

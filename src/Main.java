@@ -1,5 +1,5 @@
 
-import GUI.FirstWindow;
+import GUI.LandingWindow;
 
 import Middleware.*;
 
@@ -7,8 +7,8 @@ public class Main {
     // static String filepath = "data.csv";
     public static void main(String[] args) {
 
-        FirstWindow f = new FirstWindow();
-
+        LandingWindow landingwindow = new LandingWindow();
+        landingwindow.showWindow();
     }
 
 }
