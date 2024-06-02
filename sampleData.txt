@@ -1,0 +1,45 @@
+Hum 4145
+Islamiat
+
+CSE 4107
+Structured Programming I
+
+SWE 4101
+Introduction to Software Engineering
+
+Hum 4142
+Arabic I
+
+###	###	###	###	###	###
+
+CSE 4203
+Discrete Mathematics
+
+CSE 4205
+Digital Logic Design
+
+SWE 4201
+Object Oriented Concepts I
+
+Hum 4242
+Arabic II
+
+###	###	###	###	###	###
+
+Math 4341
+Linear Algebra
+
+CSE 4303
+Data Structures
+
+CSE 4305
+Computer Organization and Architecture
+
+CSE 4307
+Database Management Systems
+
+CSE 4309
+Theory of Computing
+
+SWE 4301
+Object Oriented Concepts II
