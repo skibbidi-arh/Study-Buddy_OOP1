@@ -54,19 +54,19 @@ public class Stopwatch implements ActionListener {
         frame.add(startButton);
         frame.add(resetButton);
         frame.add(timeLabel);
-        // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Remove this line
+
         frame.setSize(420, 420);
         frame.setLayout(null);
         frame.setVisible(true);
 
         // Add custom window listener to handle the window closing event
-        frame.addWindowListener(new WindowAdapter() {
+      /*  frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                // Perform any cleanup or resource release here
+
                 System.exit(0);
             }
-        });
+        }); */
     }
 
     void start() {
