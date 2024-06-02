@@ -27,7 +27,7 @@ public class SemesterWindow {
         //creating 8 buttons
         for (int i = 1; i <= 8; i++) {
             JButton button = new JButton("Semester " + i);
-            styleButton(button);
+            styleButton(button,new Color(63, 81, 181),new Color(48, 63, 159) );
             panel.add(button);
 
             int semesterNumber = i;
@@ -54,12 +54,12 @@ public class SemesterWindow {
         frame.add(panel, new GridBagConstraints());
     }
 
-    private void styleButton(JButton button) {
+    private void styleButton(JButton button, Color defaultColor, Color hoverColor) {
         // Set button font
         button.setFont(new Font("Arial", Font.PLAIN, 18));
 
         // Set button background and foreground colors
-        button.setBackground(new Color(63, 81, 181)); // Indigo color
+        button.setBackground(defaultColor);
         button.setForeground(Color.WHITE);
 
         // Remove button border and set margin
@@ -71,11 +71,11 @@ public class SemesterWindow {
         // Add hover effect
         button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(48, 63, 159)); // Darker indigo on hover
+                button.setBackground(hoverColor); 
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(63, 81, 181)); // Original indigo
+                button.setBackground(defaultColor);
             }
         });
     }

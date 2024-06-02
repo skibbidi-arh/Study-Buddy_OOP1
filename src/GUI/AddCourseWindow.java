@@ -27,7 +27,7 @@ public class AddCourseWindow {
         // Set up the frame
         frame = new JFrame("Course Input Window");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 200);
+        frame.setSize(400, 400);
         frame.setLayout(new GridBagLayout());
         frame.setLocationRelativeTo(null); // Center the frame
 
@@ -153,7 +153,7 @@ public class AddCourseWindow {
         button.setFont(new Font("Arial", Font.PLAIN, 16));
 
         // Set button background and foreground colors
-        button.setBackground(new Color(63, 81, 181)); // Indigo color
+        button.setBackground(new Color(63, 81, 181));
         button.setForeground(Color.WHITE);
 
         // Remove button border and set margin
@@ -161,7 +161,7 @@ public class AddCourseWindow {
         button.setFont(new Font("Arial", Font.PLAIN, 16));
 
         // Set button background and foreground colors
-        button.setBackground(new Color(63, 81, 181)); // Indigo color
+        button.setBackground(new Color(63, 81, 181)); 
         button.setForeground(Color.WHITE);
 
         // Remove button border and set margin

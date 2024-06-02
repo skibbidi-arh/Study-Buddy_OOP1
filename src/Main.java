@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-
-import GUI.CourseWindow;
 import GUI.SemesterWindow;
 
 public class Main {
