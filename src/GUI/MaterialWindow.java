@@ -16,6 +16,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MaterialWindow {
@@ -110,12 +112,30 @@ public class MaterialWindow {
                 int selectedRow = table.getSelectedRow();
                 if (selectedRow != -1) {
                     String materialLink = table.getValueAt(selectedRow, 2).toString();
+                    // checks the file and if possible opens it.
+                    File file = new File(materialLink);
+                    if (Desktop.isDesktopSupported()) {
+                        //opens the file in default app if possible
+                        Desktop desktop = Desktop.getDesktop();
+                        if (file.exists()) {
+                            try {
+                                desktop.open(file);
+                            } catch (IOException ee) {
+                                ee.printStackTrace();
+                            }
+                        } else {
+                            System.out.println("File not found: " + materialLink);
+                            JOptionPane.showMessageDialog(frame, "File not found:"+materialLink);
 
-                    // Copy row data (for demonstration, just print it out)
-                    StringSelection selection = new StringSelection(materialLink);
-                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-                    clipboard.setContents(selection, selection);
-                    System.out.println("Material Link: " + materialLink);
+                        }
+                    } else {
+                        //copies the file if opening not possible
+                        StringSelection selection = new StringSelection(materialLink);
+                        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                        clipboard.setContents(selection, selection);
+                        System.out.println("Material Link: " + materialLink);
+                        JOptionPane.showMessageDialog(frame, "Link copied to clipboard.");
+                    }
                 }
             }
         });
