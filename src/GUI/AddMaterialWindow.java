@@ -8,6 +8,9 @@ import Middleware.Material;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AddMaterialWindow {
@@ -15,6 +18,8 @@ public class AddMaterialWindow {
     private JFrame frame;
     private JTextField materialTitleField;
     private JTextField materialLinkField;
+
+    String filepath = "data.csv";
 
     public AddMaterialWindow(Course course) {
         // Set up the frame
@@ -92,6 +97,35 @@ public class AddMaterialWindow {
                 // Add material logic here
                 System.out.println("Material Title: " + materialTitle);
                 System.out.println("Material Link: " + materialLink);
+                if (!materialTitle.isEmpty() && !materialLink.isEmpty()) {
+                    //checking if the course exists
+                    // Course course = new Course(semester,courseName, courseName);
+                    Material material = new Material(course.semester, course, materialTitle, materialLink);
+                    if(!material.materialAlreadyExists()){
+                        try{
+                            // System.out.println(filepath);
+                            BufferedWriter writer = new BufferedWriter(new FileWriter(filepath,true));
+                            writer.append(course.semester.semester+","+course.name+","+course.code+","+materialTitle+","+materialLink+"\n");
+                            writer.close();
+                            JOptionPane.showMessageDialog(frame, "Material Added successfully.");
+                            
+                            //create material window
+                            ArrayList<Material> materials = course.getAllMaterial();
+                            MaterialWindow materialwindow = new MaterialWindow(course, materials);
+                            materialwindow.showWindow();
+                            frame.setVisible(false);
+                        }catch(IOException ee){
+                            System.out.println("Error Adding course");
+                            JOptionPane.showMessageDialog(frame, "Error Adding Material!");
+                        }
+                        
+                    } else {
+                        JOptionPane.showMessageDialog(frame, "Material Already exists (Same Title/File link)");
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(frame, "Enter both Material title and path.");
+                }
             }
         });
         gbc.gridx = 0;
