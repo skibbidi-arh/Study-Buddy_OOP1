@@ -20,12 +20,13 @@ Create a sync button in the course and material window
 Fix multiple button show Bug❎
 Add material title in the Material and remove ❎
 
-Add the add course material window and it's logics
+Add the add course material window and it's logics❎
 
 Change the color of add and cancel button of CourseAddWindow
 
-handle link validation - for example remove prefix or suffix
 change the window size.
 
 
 Sync with url system.
+
+fix the setvisible = false to hideWindow

@@ -87,13 +87,13 @@ public class FileUploadApp extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                FileUploadApp app = new FileUploadApp();
-                app.setVisible(true);
-            }
-        });
-    }
+    // public static void main(String[] args) {
+    //     SwingUtilities.invokeLater(new Runnable() {
+    //         @Override
+    //         public void run() {
+    //             FileUploadApp app = new FileUploadApp();
+    //             app.setVisible(true);
+    //         }
+    //     });
+    // }
 }

@@ -6,7 +6,7 @@ import Middleware.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 
 public class LandingWindow{
         private JFrame frame;
@@ -35,7 +35,6 @@ public class LandingWindow{
         panel.add(timerButton);
         panel.add(syncButton);
 
-
         materialButton.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
@@ -54,6 +53,15 @@ public class LandingWindow{
             }
 
         });
+
+        syncButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                SyncWindow syncwindow = new SyncWindow();
+                syncwindow.showWindow();
+                hideWindow();
+            }
+        });
+
         frame.add(panel);
     }
 
@@ -84,5 +92,8 @@ public class LandingWindow{
     }
     public void showWindow(){
         frame.setVisible(true);
+    }
+    public void hideWindow(){
+        frame.setVisible(false);
     }
 }
