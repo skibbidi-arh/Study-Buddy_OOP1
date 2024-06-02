@@ -120,10 +120,10 @@ public class SyncWindow {
                 String retrivalData = sync.retriveFile(popupTextField.getText());
                 if(retrivalData.equals("")){
                     JOptionPane.showMessageDialog(frame, "File sync failed!");
-                    retrivalFailed = true;
+                    retrivalFailed = false;
                     // dialog.setVisible(false);
                 }
-                String []retrivalDataSplit = retrivalData.split("\\r?\\n");
+                String []retrivalDataSplit = retrivalData.split("\n");
                 //compare and add files to local file
                 for(int i=0;i<retrivalDataSplit.length;i++){
                     System.out.println(retrivalDataSplit[i]);
