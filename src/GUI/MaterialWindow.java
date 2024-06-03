@@ -18,7 +18,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MaterialWindow {
 
@@ -124,9 +128,28 @@ public class MaterialWindow {
                                 ee.printStackTrace();
                             }
                         } else {
-                            System.out.println("File not found: " + materialLink);
-                            JOptionPane.showMessageDialog(frame, "File not found:"+materialLink);
-
+                            //checks if the url is valid using regex expression
+                            final String URL_REGEX ="^(https?|ftp)://" +"((([a-zA-Z\\d]([a-zA-Z\\d-]*[a-zA-Z\\d])*)\\.)+[a-zA-Z]{2,}|" + "localhost|" +"\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|" + "\\[?[a-fA-F\\d:]+\\]?)" +"(\\:\\d+)?(/[-a-zA-Z\\d%_.~+]*)*" +"(\\?[;&a-zA-Z\\d%_.~+=-]*)?" +"(\\#[-a-zA-Z\\d_]*)?$"; 
+                            final Pattern URL_PATTERN = Pattern.compile(URL_REGEX);
+                            Matcher matcher = URL_PATTERN.matcher(materialLink);
+                            if(matcher.matches()){
+                                //valid link
+                                try {
+                                    URI uri = new URI(materialLink);
+                                    if (uri.getScheme() != null && (uri.getScheme().equals("http") || uri.getScheme().equals("https"))) {
+                                        // If the materialLink is a URL, open it in the default browser
+                                        Desktop.getDesktop().browse(uri);
+                                    }
+                                }catch (URISyntaxException | IOException ee) {
+                                    JOptionPane.showMessageDialog(frame, "Link not found:"+materialLink);
+                                }
+                            }
+                            else{
+                                //invalid link
+                                System.out.println("Error");
+                                System.out.println("File not found: " + materialLink);
+                                JOptionPane.showMessageDialog(frame, "File/Link not found:"+materialLink);
+                            }
                         }
                     } else {
                         //copies the file if opening not possible

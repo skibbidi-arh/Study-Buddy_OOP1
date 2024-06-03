@@ -20,11 +20,9 @@ public class SemesterWindow {
 
         JPanel panel = new JPanel();
         // 4 rows , 2 columns
-        panel.setLayout(new GridLayout(4, 2, 10, 10));
+        panel.setLayout(new GridLayout(5, 2, 10, 10));
         //padding
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
-
 
         //creating 8 buttons
         for (int i = 1; i <= 8; i++) {
@@ -51,11 +49,20 @@ public class SemesterWindow {
                 }
             });
         }
-
+        //back button
+        JButton backButton = new JButton("Back");
+        styleButton(backButton,new Color(0, 181, 0),new Color(0, 159, 0));
+        panel.add(backButton);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                LandingWindow landingwindow = new LandingWindow();
+                frame.setVisible(false);
+                landingwindow.showWindow();
+            }
+        });
         //adding panel to frame
-
-        frame.add(panel);
-
+        frame.add(panel, new GridBagConstraints());
     }
 
     private void styleButton(JButton button, Color defaultColor, Color hoverColor) {

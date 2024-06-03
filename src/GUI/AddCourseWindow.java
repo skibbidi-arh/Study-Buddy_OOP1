@@ -47,14 +47,14 @@ public class AddCourseWindow {
         panel.add(courseCodeLabel, constraints);
         // styleLabel(courseCodeLabel);
 
-        // Course Code Text Field
+        // course code label
         courseCodeField = new JTextField(20);
         constraints.gridx = 1;
         constraints.gridy = 0;
         constraints.anchor = GridBagConstraints.WEST;
         panel.add(courseCodeField, constraints);
 
-        // Course Name Label
+        // course name label
         JLabel courseNameLabel = new JLabel("Course Name:");
         constraints.gridx = 0;
         constraints.gridy = 1;
@@ -63,14 +63,14 @@ public class AddCourseWindow {
         // styleLabel(courseNameLabel);
 
 
-        // Course Name Text Field
+        // course name text field
         courseNameField = new JTextField(20);
         constraints.gridx = 1;
         constraints.gridy = 1;
         constraints.anchor = GridBagConstraints.WEST;
         panel.add(courseNameField, constraints);
 
-        // Add Button
+        // add button
         addButton = new JButton("Add");
         styleButton(addButton);
         constraints.gridx = 1;
@@ -78,7 +78,7 @@ public class AddCourseWindow {
         constraints.anchor = GridBagConstraints.WEST;
         panel.add(addButton, constraints);
 
-        // Add Action Listener to Add Button
+        // action listener for buttons
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -122,7 +122,7 @@ public class AddCourseWindow {
             }
         });
 
-        //Add back button
+        //back button
         JButton cancelButton = new JButton("Cancel");
         styleButton(cancelButton);
         constraints.gridx = 1;

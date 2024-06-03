@@ -1,0 +1,50 @@
+Hum 4145
+Islamiat
+
+CSE 4107
+Structured Programming I
+
+SWE 4101
+Introduction to Software Engineering
+
+Hum 4142
+Arabic I
+Basic Tajweed Rules pdf https://classroom.google.com/u/1/c/NjE3NzM1MjgzOTE3/m/NjE3NzM1NDIwODYx/details
+Tajweed beginner video playlist https://www.youtube.com/playlist?list=PL6TlMIZ5ylgqM4Uuu7iAhIeuSdF0v9yxo
+
+###	###	###	###	###	###
+
+CSE 4203
+Discrete Mathematics
+
+CSE 4205
+Digital Logic Design
+Class slide https://drive.google.com/file/d/1a2kX-GObnu6artb71XGfs8WJXaCftM18/view?pli=1
+
+SWE 4201
+Object Oriented Concepts I
+File IO Slide https://drive.google.com/file/d/1xSxtU3zO0Pi2Y28akiLKr6Y0UhaP0smD/view
+Lab Finall task https://drive.google.com/file/d/1UBbtk5T_deM2gx7oq_PRPPDnCrRetntz/view
+
+Hum 4242
+Arabic II
+
+###	###	###	###	###	###
+
+Math 4341
+Linear Algebra
+
+CSE 4303
+Data Structures
+
+CSE 4305
+Computer Organization and Architecture
+
+CSE 4307
+Database Management Systems
+
+CSE 4309
+Theory of Computing
+
+SWE 4301
+Object Oriented Concepts II
